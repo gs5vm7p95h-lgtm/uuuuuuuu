@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>유물 짝맞추기 · 고고역사실 탐험</title>
+<style>
+:root{--paper:#F5F3EB;--white:#FFFFFF;--ink:#1C2A30;--muted:#50626A;--navy:#283D4F;--teal:#0D6761;--sand:#BFA067;--line:#DCDDD5;--soft:#E6EEEA;--back-image:none}
+*{box-sizing:border-box}html{color-scheme:light}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;line-height:1.55}button,select{font:inherit}button,a,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}a{color:var(--teal);text-underline-offset:3px}h1,h2,h3,p{margin:0}button{color:inherit}main{max-width:1100px;margin:0 auto;padding:26px 28px 24px}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.06em;font-weight:700}.topline .eyebrow{display:flex;align-items:center;gap:9px}.mark{display:inline-block;width:15px;height:15px;background:var(--teal);border-radius:50% 50% 3px 3px}.personal{font-weight:500;letter-spacing:0;color:var(--muted)}.hero{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:25px 0 24px}.kicker{font-size:12px;font-weight:750;color:var(--teal);letter-spacing:.16em;margin-bottom:7px}h1{font-size:clamp(27px,4.4vw,43px);line-height:1.2;letter-spacing:-.05em;font-weight:850}.subtitle{font-size:14px;margin-top:12px;color:var(--muted);word-break:keep-all}.hero-tag{flex-shrink:0;border-left:1px solid var(--line);padding-left:25px}.hero-tag strong{display:block;font-size:30px;line-height:1.15;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.hero-tag span{font-size:12px;color:var(--muted)}.toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap;padding:16px;background:#EBEDE6;border:1px solid var(--line);border-radius:16px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:11px;font-weight:750;color:var(--muted)}select{height:41px;border:1px solid #C7CDC7;border-radius:8px;padding:0 32px 0 11px;background:white;color:var(--ink);font-size:13px;max-width:100%}.button{height:41px;padding:0 17px;border-radius:8px;border:1px solid var(--line);background:var(--white);font-weight:750;font-size:13px;white-space:nowrap}.button.primary{background:var(--teal);color:white;border-color:var(--teal)}.toolbar-actions{display:flex;gap:8px;margin-left:auto}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:17px 0 15px}.stat{border-left:2px solid var(--line);padding:1px 13px}.stat span{display:block;color:var(--muted);font-size:11px}.stat strong{font-size:23px;font-weight:750;letter-spacing:-.03em;font-variant-numeric:tabular-nums}.stat strong small{font-size:13px;font-weight:500;color:var(--muted);margin-left:3px}.progress{height:4px;background:#DDE2DB;border-radius:4px;overflow:hidden;margin-bottom:16px}.progress div{height:100%;background:var(--teal);width:0;transition:width .35s}.board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.board.three{max-width:710px;margin:0 auto;grid-template-columns:repeat(3,minmax(0,1fr))}.card{position:relative;display:block;isolation:isolate;width:100%;aspect-ratio:4/5;min-width:0;border:0;border-radius:12px;padding:0;background:transparent;perspective:850px;box-shadow:0 2px 5px #1C2A3010;transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-2px);box-shadow:0 4px 10px #1C2A3020}.card:active{transform:translateY(0)}.card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .36s cubic-bezier(.2,.75,.25,1)}.card.open .card-inner,.card.hinted .card-inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;overflow:hidden}.back{background:var(--navy);background-image:var(--back-image);background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--paper);border:1px solid #3A5060}.back-word{font-size:clamp(17px,2.3vw,27px);font-family:'AppleMyungjo','Batang',serif;letter-spacing:.18em;margin-left:.18em}.back-sub{font-size:9px;letter-spacing:.15em;margin-top:4px;color:#E9DFCA}.card-number{position:absolute;bottom:13%;font-size:10px;opacity:.8;font-variant-numeric:tabular-nums}.front{transform:rotateY(180deg);background:white;border:1px solid #C8D3CD;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:9px}.front img{width:100%;height:calc(100% - 23px);object-fit:contain;display:block}.caption{height:23px;font-size:10px;line-height:1.2;text-align:center;display:flex;align-items:center;justify-content:center;font-weight:700;visibility:hidden;word-break:keep-all}.card.matched .caption{visibility:visible}.card.matched .front{border:2px solid var(--teal);background:#FCFFFC}.check{display:none;position:absolute;top:5px;right:5px;background:var(--teal);color:white;width:19px;height:19px;font-size:11px;border-radius:50%;align-items:center;justify-content:center;z-index:1}.matched .check{display:flex}.name-face{background:#F8FAF5;padding:15px 10px}.name-label{font-size:10px;color:var(--teal);letter-spacing:.12em;margin-bottom:14px}.artifact-name{font-size:clamp(13px,1.7vw,20px);font-weight:800;line-height:1.5;word-break:keep-all;overflow-wrap:anywhere}.name-line{width:22px;height:2px;background:var(--sand);margin-top:15px}.status{min-height:25px;margin:12px 0 14px;font-size:13px;color:var(--muted);text-align:center;word-break:keep-all}.notice{border-radius:12px;background:var(--soft);padding:15px 18px;display:flex;align-items:center;gap:16px;border:1px solid #CBDCD3}.notice-icon{font-size:23px;color:var(--teal);flex-shrink:0}.notice h2{font-size:14px;margin-bottom:4px}.notice p{font-size:12px;color:var(--muted);word-break:keep-all}.discovery{display:flex;gap:16px;align-items:center;padding:16px 18px;border:1px solid var(--line);background:var(--white);border-radius:12px}.discovery[hidden],.notice[hidden],.completion[hidden]{display:none}.discovery img{width:90px;height:78px;object-fit:contain;flex-shrink:0}.discovery .meta{font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--teal);margin-bottom:3px}.discovery h2{font-size:16px;margin-bottom:5px}.discovery p{font-size:12px;word-break:keep-all}.discovery .observe{color:var(--muted);margin-top:5px}.discovery a{font-size:11px;display:inline-block;margin-top:5px}.completion{margin-bottom:17px;background:var(--navy);color:var(--paper);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:18px;justify-content:space-between}.completion h2{font-size:22px;letter-spacing:-.03em}.completion p{font-size:13px;margin-top:5px;color:#DEE5E5}.completion .button{border:0;flex-shrink:0}.catalog{margin-top:20px;border-top:1px solid var(--line);padding-top:16px}.catalog summary{cursor:pointer;font-size:13px;font-weight:750}.catalog-intro{margin:10px 0 14px;font-size:12px;color:var(--muted)}.catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.catalog-item{padding:15px;border:1px solid var(--line);border-radius:12px;background:white;min-width:0}.catalog-item img{width:100%;height:130px;object-fit:contain}.catalog-item h3{font-size:14px;margin:8px 0 3px;word-break:keep-all}.catalog-item .period{font-size:11px;color:var(--teal);font-weight:700}.catalog-item p{font-size:12px;margin-top:7px;word-break:keep-all}.catalog-item a{display:inline-block;font-size:11px;margin-top:8px}footer{font-size:10px;color:var(--muted);border-top:1px solid var(--line);margin-top:19px;padding-top:13px;line-height:1.8}footer p+p{margin-top:3px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){main{padding:20px 18px}.board{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.hero-tag{display:none}.hero{padding:22px 0}.toolbar-actions{margin-left:0}.toolbar{gap:10px}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.artifact-name{font-size:16px}.back-word{font-size:23px}.personal{font-size:10px}.completion{flex-direction:column;align-items:flex-start}.card .caption{font-size:9px}}
+@media(max-width:460px){main{padding:16px 13px}.topline{font-size:10px}.personal{font-size:9px}.toolbar{padding:12px}.field{flex:1;min-width:120px}.toolbar-actions{width:100%}.toolbar-actions .button{flex:1}.board{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.board.three{max-width:none}.front{padding:6px}.back-word{font-size:20px}.back-sub{font-size:7px}.artifact-name{font-size:14px}.name-label{font-size:9px;margin-bottom:9px}.stat{padding-left:9px}.stat strong{font-size:20px}.stat span{font-size:10px}.discovery{align-items:flex-start;padding:13px;gap:10px}.discovery img{width:65px;height:66px}.discovery h2{font-size:14px}.catalog-grid{grid-template-columns:1fr 1fr;gap:9px}.catalog-item{padding:10px}.catalog-item img{height:100px}.catalog-item h3{font-size:12px}.catalog-item p{font-size:11px}.caption{height:25px}.front img{height:calc(100% - 25px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+<header class="topline"><div class="eyebrow"><span class="mark" aria-hidden="true"></span>한림대학교박물관 소장 유물로 배우기</div><span class="personal">비공식 교육용 게임</span></header>
+<section class="hero" aria-labelledby="gameTitle"><div><p class="kicker">고고역사실 탐험 · 삼국시대 전시</p><h1 id="gameTitle">유물 짝맞추기</h1><p class="subtitle">닮은 모습을 기억하고, 오래된 이야기를 발견하세요.</p></div><div class="hero-tag"><strong id="heroCount">6종 · 12장</strong><span>사진으로 만나는 작은 전시실</span></div></section>
+<section class="toolbar" aria-label="게임 설정"><div class="field"><label for="mode">게임 방식</label><select id="mode"><option value="picture">같은 사진끼리</option><option value="name">사진 ↔ 유물 이름</option></select></div><div class="field"><label for="pairCount">카드 수</label><select id="pairCount"><option value="3">연습 · 3쌍 / 6장</option><option value="6">기본 · 6쌍 / 12장</option></select></div><div class="toolbar-actions"><button id="hint" class="button" type="button">잠깐 보기 · 2회</button><button id="restart" class="button primary" type="button">새 게임</button></div></section>
+<section class="stats" aria-label="게임 기록"><div class="stat"><span>발견한 유물</span><strong id="found">0<small>/ 6</small></strong></div><div class="stat"><span>시도 횟수</span><strong id="attempts">0<small>회</small></strong></div><div class="stat"><span>탐험 시간</span><strong id="elapsed">00:00</strong></div><div class="stat"><span>정답률</span><strong id="accuracy">—</strong></div></section>
+<div class="progress" role="progressbar" aria-label="발견 진행률" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" id="progress"><div id="progressFill"></div></div>
+<section id="completion" class="completion" aria-labelledby="completionTitle" hidden><div><p class="kicker" style="color:#D6C08B">탐험 완료</p><h2 id="completionTitle" tabindex="-1">모든 유물을 발견했어요!</h2><p id="resultText"></p></div><button class="button" id="again" type="button">다시 도전하기</button></section>
+<section class="board" id="board" aria-label="유물 짝맞추기 카드"></section>
+<p class="status" id="status" role="status" aria-live="polite" aria-atomic="true">카드 두 장을 눌러 같은 유물의 짝을 찾아보세요.</p>
+<section id="welcome" class="notice"><span class="notice-icon" aria-hidden="true">✧</span><div><h2>한 쌍을 찾을 때마다, 유물 이야기가 열려요.</h2><p id="ruleText">같은 유물 사진 두 장을 찾으세요. 아래의 유물 도감에서 먼저 공부해도 좋아요.</p></div></section>
+<section id="discovery" class="discovery" aria-label="발견한 유물 해설" hidden><img id="discoveryImage" alt=""><div><p class="meta" id="discoveryPeriod"></p><h2 id="discoveryTitle"></h2><p id="discoveryDescription"></p><p class="observe" id="discoveryObserve"></p><a id="discoverySource" target="_blank" rel="noopener noreferrer">박물관의 원문 설명 보기 ↗</a></div></section>
+<details class="catalog"><summary>유물 도감 · 사진과 이름 미리 공부하기</summary><p class="catalog-intro">게임에 사용하는 6종입니다. 시대 표기와 해설은 박물관 게시글을 바탕으로 정리했습니다. 3쌍 모드에서는 이 중 3종이 무작위로 선택됩니다.</p><div class="catalog-grid" id="catalog"></div></details>
+<footer><p>사진·유물 설명 출처: <a href="https://www.hallym.ac.kr/museum/4609/subview.do" target="_blank" rel="noopener noreferrer">한림대학교박물관 · 고고역사실 삼국시대 전시</a>. 이 게임은 박물관이 제작하거나 승인한 공식 서비스가 아닙니다.</p><p>실제 유물 사진을 사용했으며 유물 자체를 AI로 재현하지 않았습니다. 카드 뒷면 장식만 AI 생성 이미지입니다. 사진을 자르거나 유물 형태를 바꾸지 않았으며 게임 표시용 크기만 조정했습니다.</p><p>사진의 재이용 허락 범위는 확인하지 않았습니다. 공개 배포·상업적 이용 전 박물관의 이용 조건과 허락 여부를 확인하세요. 일부 원본 사진은 저해상도입니다. 이 게시판에는 원삼국시대 관련 유물도 포함되어 있습니다.</p></footer>
+<noscript>이 게임은 자바스크립트가 필요합니다. HTML 파일을 다운로드하여 Chrome 등 웹브라우저에서 열어주세요.</noscript>
+</main>
+<script>
+'use strict';
+const CONFIG = __CONFIG_JSON__;
+const ARTIFACTS = __ARTIFACTS_JSON__;
+const IMAGES = __IMAGES_JSON__;
+
+/* ENGINE_START */
+// 화면과 독립된 짝맞추기 규칙입니다. 같은 카드 중복 선택과 세 번째 선택을 막습니다.
+function shuffled(list, random=Math.random){
+  const out=[...list];
+  for(let i=out.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+  return out;
+}
+class MemoryGame {
+  constructor(items, mode='picture', pairs=6, random=Math.random){
+    this.mode=mode;
+    this.items=shuffled(items,random).slice(0,Math.min(pairs,items.length));
+    this.total=this.items.length;
+    this.deck=shuffled(this.items.flatMap(item=>[0,1].map(copy=>({uid:item.id+'_'+copy,id:item.id,type:(mode==='name'&&copy===1)?'name':'photo'}))),random);
+    this.selection=[];this.matched=new Set();this.attempts=0;this.locked=false;
+  }
+  choose(uid){
+    const card=this.deck.find(c=>c.uid===uid);
+    if(!card||this.locked||this.matched.has(card.id)||this.selection.includes(uid)) return {type:'ignored'};
+    this.selection.push(uid);
+    if(this.selection.length===1) return {type:'first'};
+    this.attempts++;this.locked=true;
+    const first=this.deck.find(c=>c.uid===this.selection[0]);
+    if(first.id===card.id){this.matched.add(card.id);return {type:this.done()?'complete':'match',id:card.id};}
+    return {type:'mismatch'};
+  }
+  resolve(){this.selection=[];this.locked=false;}
+  done(){return this.matched.size===this.total;}
+}
+/* ENGINE_END */
+
+const $=id=>document.getElementById(id);
+const artifactMap=new Map(ARTIFACTS.map(a=>[a.id,a]));
+let game=null, cardNodes=new Map(), timeouts=[], timer=null, startTime=null, finalElapsed=null;
+let hinting=false, hintsUsed=0, generation=0;
+const hintLimit=Math.max(0,Number(CONFIG.hintLimit)||0);
+const mismatchDelay=Math.max(400,Number(CONFIG.mismatchDelay)||1100);
+const hintDuration=Math.max(500,Number(CONFIG.hintDuration)||1800);
+
+function later(callback,ms){const token=generation;timeouts.push(setTimeout(()=>{if(token===generation) callback();},ms));}
+function elapsedSeconds(){if(finalElapsed!==null)return finalElapsed;return startTime===null?0:Math.floor((performance.now()-startTime)/1000);}
+function formatTime(seconds){return String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');}
+function startClock(){if(startTime!==null)return;startTime=performance.now();timer=setInterval(()=>{$('elapsed').textContent=formatTime(elapsedSeconds());},250);}
+function stopClock(){finalElapsed=elapsedSeconds();clearInterval(timer);timer=null;}
+function setStatus(text){$('status').textContent=text;}
+function create(tag,className,text){const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;}
+function buildBoard(){
+  $('board').replaceChildren();cardNodes=new Map();$('board').classList.toggle('three',game.total===3);
+  for(const [index,card] of game.deck.entries()){
+    const item=artifactMap.get(card.id),button=create('button','card');button.type='button';button.dataset.uid=card.uid;
+    const inner=create('span','card-inner'),back=create('span','face back'),front=create('span','face front');
+    back.append(create('span','back-word','유물'),create('span','back-sub','짝을 찾아보세요'),create('span','card-number',String(index+1).padStart(2,'0')));
+    if(card.type==='photo'){
+      const img=create('img');img.src=IMAGES[card.id];img.alt=item.name+' 유물 사진';img.draggable=false;
+      front.append(img,create('span','caption',item.name));
+    }else{
+      front.classList.add('name-face');front.append(create('span','name-label','유물 이름'),create('span','artifact-name',item.name),create('span','name-line'));
+    }
+    const check=create('span','check','✓');check.setAttribute('aria-hidden','true');front.append(check);
+    inner.append(back,front);button.append(inner);button.addEventListener('click',()=>flip(card.uid));
+    $('board').append(button);cardNodes.set(card.uid,{button,back,front,index});
+  }
+  paint();
+}
+function paint(){
+  for(const card of game.deck){
+    const {button,back,front,index}=cardNodes.get(card.uid);
+    const matched=game.matched.has(card.id),open=matched||game.selection.includes(card.uid),visible=open||hinting;
+    button.classList.toggle('open',open);button.classList.toggle('matched',matched);button.classList.toggle('hinted',hinting&&!matched);
+    back.setAttribute('aria-hidden',String(visible));front.setAttribute('aria-hidden',String(!visible));
+    const name=artifactMap.get(card.id).name;
+    button.setAttribute('aria-label',visible?`${index+1}번 카드, ${name}, ${card.type==='photo'?'사진':'이름'}${matched?', 짝 맞춤. 해설 다시 보기':''}`:`${index+1}번 카드, 뒤집기`);
+    button.setAttribute('aria-pressed',String(visible));
+  }
+  $('found').replaceChildren(document.createTextNode(String(game.matched.size)),create('small','',`/ ${game.total}`));
+  $('attempts').replaceChildren(document.createTextNode(String(game.attempts)),create('small','','회'));
+  $('accuracy').textContent=game.attempts?Math.round(game.matched.size/game.attempts*100)+'%':'—';
+  $('elapsed').textContent=formatTime(elapsedSeconds());
+  $('progressFill').style.width=(game.matched.size/game.total*100)+'%';
+  $('progress').setAttribute('aria-valuenow',String(game.matched.size));$('progress').setAttribute('aria-valuemax',String(game.total));
+  $('hint').textContent=`잠깐 보기 · ${Math.max(0,hintLimit-hintsUsed)}회`;
+  $('hint').disabled=hinting||game.locked||game.selection.length>0||hintsUsed>=hintLimit||game.done();
+}
+function showArtifact(id){
+  const item=artifactMap.get(id);$('welcome').hidden=true;$('discovery').hidden=false;
+  $('discoveryImage').src=IMAGES[id];$('discoveryImage').alt=item.name;
+  $('discoveryPeriod').textContent=item.period+' · '+item.material;
+  $('discoveryTitle').textContent=item.name;$('discoveryDescription').textContent=item.description;
+  $('discoveryObserve').textContent='관찰 포인트 · '+item.observe;$('discoverySource').href=item.source;
+}
+function finish(){
+  stopClock();paint();$('completion').hidden=false;
+  $('resultText').textContent=`${game.total}종 발견 · ${game.attempts}회 시도 · ${formatTime(elapsedSeconds())} · 힌트 ${hintsUsed}회 사용`;
+  setStatus('모든 짝을 찾았어요! 맞춘 카드를 다시 누르면 유물 해설을 읽을 수 있어요.');
+  $('completionTitle').focus({preventScroll:true});
+}
+function flip(uid){
+  const card=game.deck.find(c=>c.uid===uid);
+  if(!card)return;
+  if(game.matched.has(card.id)){showArtifact(card.id);return;}
+  if(hinting||game.locked||game.done())return;
+  const result=game.choose(uid);if(result.type==='ignored')return;
+  startClock();paint();
+  if(result.type==='first'){setStatus(game.mode==='picture'?'같은 유물 사진을 찾아 한 장 더 열어보세요.':'사진과 그 유물의 이름을 연결해 보세요.');return;}
+  if(result.type==='mismatch'){
+    setStatus('다른 유물이에요. 위치를 기억한 다음 다시 찾아보세요.');
+    later(()=>{game.resolve();paint();setStatus('카드 두 장을 골라 다시 도전하세요.');},mismatchDelay);
+  }else{
+    showArtifact(result.id);setStatus('정답! '+artifactMap.get(result.id).name+'를 발견했어요.');
+    if(result.type==='complete')stopClock();
+    later(()=>{game.resolve();paint();if(result.type==='complete')finish();},360);
+  }
+}
+function hint(){
+  if(hinting||game.locked||game.selection.length||hintsUsed>=hintLimit||game.done())return;
+  startClock();hintsUsed++;hinting=true;paint();setStatus('카드의 위치를 기억하세요. 잠시 뒤 다시 가려집니다.');
+  later(()=>{hinting=false;paint();setStatus('기억한 위치에서 짝을 찾아보세요.');},hintDuration);
+}
+function restart(){
+  generation++;for(const id of timeouts)clearTimeout(id);timeouts=[];clearInterval(timer);timer=null;
+  startTime=null;finalElapsed=null;hinting=false;hintsUsed=0;
+  game=new MemoryGame(ARTIFACTS,$('mode').value,Number($('pairCount').value));
+  $('completion').hidden=true;$('discovery').hidden=true;$('welcome').hidden=false;
+  $('heroCount').textContent=`${game.total}종 · ${game.total*2}장`;
+  $('ruleText').textContent=game.mode==='picture'?'같은 유물 사진 두 장을 찾으세요. 아래의 유물 도감에서 먼저 공부해도 좋아요.':'유물 사진 한 장과 해당 이름 카드 한 장을 연결하세요. 아래의 유물 도감에서 먼저 공부해도 좋아요.';
+  setStatus(game.mode==='picture'?'카드 두 장을 눌러 같은 유물의 짝을 찾아보세요.':'사진 카드와 이름 카드의 짝을 찾아보세요.');buildBoard();
+}
+function buildCatalog(){
+  for(const item of ARTIFACTS){
+    const article=create('article','catalog-item'),img=create('img');img.src=IMAGES[item.id];img.alt=item.name;img.loading='lazy';
+    const link=create('a','', '박물관 원문 보기 ↗');link.href=item.source;link.target='_blank';link.rel='noopener noreferrer';
+    article.append(img,create('h3','',item.name),create('div','period',item.period),create('p','',item.description),link);$('catalog').append(article);
+  }
+}
+$('gameTitle').textContent=CONFIG.title||'유물 짝맞추기';document.title=$('gameTitle').textContent+' · 고고역사실 탐험';
+document.documentElement.style.setProperty('--back-image',`url("${IMAGES.card_back}")`);
+$('mode').value=CONFIG.defaultMode==='name'?'name':'picture';$('pairCount').value=Number(CONFIG.defaultPairs)===3?'3':'6';
+$('hint').addEventListener('click',hint);$('restart').addEventListener('click',restart);$('again').addEventListener('click',restart);
+$('mode').addEventListener('change',restart);$('pairCount').addEventListener('change',restart);
+window.addEventListener('pagehide',()=>{clearInterval(timer);timeouts.forEach(clearTimeout);});
+buildCatalog();restart();
+</script>
+</body>
+</html>
